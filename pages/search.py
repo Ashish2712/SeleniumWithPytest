@@ -13,6 +13,7 @@ class DuckDuckGoSearchPage:
 
     # Locators
     SEARCH_INPUT = (By.ID, 'search_form_input_homepage')
+    CLICK = (By.ID, 'search_button_homepage')
 
     # Initializer
     def __init__(self, browser):
@@ -26,4 +27,12 @@ class DuckDuckGoSearchPage:
         search_input = self.browser.find_element(*self.SEARCH_INPUT)
         search_input.send_keys(phrase + Keys.RETURN)
 
+    def search_by_click(self, phrase):
+        search_input = self.browser.find_element(*self.SEARCH_INPUT)
+        search_input.send_keys(phrase)
+        click_icon = self.browser.find_element(*self.CLICK)
+        click_icon.click()
+
+
+        # search_input.send_keys(phrase + Keys.RETURN)
     
